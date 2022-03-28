@@ -40,5 +40,31 @@ CLASS zcl_bs_demo_cds_read IMPLEMENTATION.
       INTO TABLE @DATA(lt_union).
 
     out->write( lt_union ).
+
+    " Association
+    SELECT FROM zbs_i_dmoinvoice
+      FIELDS documentnumber, partnernumber, \_partner-partnername, \_partner-city
+      INTO TABLE @DATA(lt_association)
+      UP TO 10 ROWS.
+
+    out->write( lt_association ).
+
+    " Complete Document
+    SELECT FROM ZBS_I_DmoPosition
+      FIELDS  DocumentNumber,
+              PositionNumber,
+              \_Invoice-PartnerNumber,
+              \_Invoice\_Partner-PartnerName,
+              \_Invoice\_Partner-City,
+              \_Invoice\_Partner-Country,
+              MaterialNumber,
+              PositionQuantity,
+              PositionPrice,
+              PositionCurrency,
+              \_Invoice-DocumentDate
+      INTO TABLE @DATA(lt_full_with_association)
+      UP TO 20 ROWS.
+
+    out->write( lt_full_with_association ).
   ENDMETHOD.
 ENDCLASS.

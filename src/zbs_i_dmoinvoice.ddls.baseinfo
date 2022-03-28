@@ -6,7 +6,10 @@
 "ZBS_DMO_INVOICE"
 ],
 "ASSOCIATED":
-[],
+[
+"ZBS_I_DMOPARTNER",
+"ZBS_I_DMOPOSITION"
+],
 "BASE":
 [],
 "ANNO_REF":

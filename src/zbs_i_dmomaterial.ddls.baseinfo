@@ -6,7 +6,10 @@
 "ZBS_DMO_MATERIAL"
 ],
 "ASSOCIATED":
-[],
+[
+"I_CURRENCY",
+"I_UNITOFMEASURE"
+],
 "BASE":
 [],
 "ANNO_REF":

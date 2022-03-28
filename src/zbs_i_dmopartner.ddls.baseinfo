@@ -6,7 +6,10 @@
 "ZBS_DMO_PARTNER"
 ],
 "ASSOCIATED":
-[],
+[
+"I_COUNTRY",
+"I_CURRENCY"
+],
 "BASE":
 [],
 "ANNO_REF":
