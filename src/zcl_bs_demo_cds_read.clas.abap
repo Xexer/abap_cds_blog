@@ -66,5 +66,16 @@ CLASS zcl_bs_demo_cds_read IMPLEMENTATION.
       UP TO 20 ROWS.
 
     out->write( lt_full_with_association ).
+
+    " Parameters
+    SELECT FROM ZBS_C_DmoParameter(
+        p_date = '20210422',
+        p_type = 'C',
+        p_field = 'Program'
+      )
+      FIELDS *
+      INTO table@DATA(lt_parameter).
+
+    out->write( lt_parameter ).
   ENDMETHOD.
 ENDCLASS.
