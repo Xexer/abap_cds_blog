@@ -1,0 +1,11 @@
+@EndUserText.label: 'Authority check for material'
+@MappingRole: true
+define role ZBS_I_DmoMaterial {
+  grant 
+    select
+      on
+        ZBS_I_DmoMaterial
+          where
+            ( MaterialNumber ) = aspect pfcg_auth(ZBS_DMOMAT, MATNR, ACTVT = '03');
+            
+}
