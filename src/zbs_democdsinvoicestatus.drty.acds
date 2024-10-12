@@ -1,0 +1,4 @@
+@EndUserText.quickInfo: 'Inv. status'
+@EndUserText.label: 'Invoice status'
+@EndUserText.heading: 'Invoice status'
+define type ZBS_DemoCDSInvoiceStatus : abap.char( 1 )

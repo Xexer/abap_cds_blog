@@ -1,0 +1,16 @@
+@EndUserText.quickInfo: 'Inv. status'
+@EndUserText.label: 'Invoice status as Enum'
+@EndUserText.heading: 'Invoice status'
+define type ZBS_DemoCDSInvoiceStatusEnum : abap.char(1) enum
+{
+  @EndUserText.label: 'Initial'
+  Empty   = initial;
+  @EndUserText.label: 'Created'
+  Created = 'C';
+  @EndUserText.label: 'Payed'
+  Payed   = 'P';
+  @EndUserText.label: 'Closed'
+  Closed  = 'O';
+}
+
+
