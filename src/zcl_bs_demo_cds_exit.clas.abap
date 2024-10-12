@@ -12,7 +12,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_bs_demo_cds_exit IMPLEMENTATION.
+CLASS ZCL_BS_DEMO_CDS_EXIT IMPLEMENTATION.
+
+
   METHOD if_sadl_exit_calc_element_read~calculate.
     DATA:
       lt_view_data TYPE STANDARD TABLE OF ZBS_C_DmoPricePerUnit WITH EMPTY KEY.

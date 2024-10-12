@@ -50,7 +50,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_bs_demo_dummy_data IMPLEMENTATION.
+CLASS ZCL_BS_DEMO_DUMMY_DATA IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     create_partner( ).
     out->write( |Partner: { lines( mt_partner ) }| ).

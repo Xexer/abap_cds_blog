@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZBSIDMOMATERIAL'
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Interface for Material'
 define view ZBS_I_DmoMaterial
   as select from zbs_dmo_material

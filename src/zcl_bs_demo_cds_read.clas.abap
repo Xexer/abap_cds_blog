@@ -12,7 +12,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_bs_demo_cds_read IMPLEMENTATION.
+CLASS ZCL_BS_DEMO_CDS_READ IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     " Demo SELECT
     SELECT FROM zbs_i_dmopartner
