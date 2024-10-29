@@ -9,9 +9,13 @@ define view ZBS_C_DmoPricePerUnit
   key DocumentNumber,
   key PositionNumber,
       _Material.MaterialName,
+      @Semantics.quantity.unitOfMeasure: 'PositionUnit'
       PositionQuantity,
+      PositionUnit,
+      @Semantics.amount.currencyCode: 'PositionCurrency'
       PositionPrice,
       PositionCurrency,
+      @Semantics.amount.currencyCode: 'PositionCurrency'
       @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BS_DEMO_CDS_EXIT'
       cast( 0 as abap.curr(15,2) ) as PricePerUnit
 }

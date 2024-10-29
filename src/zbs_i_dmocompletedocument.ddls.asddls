@@ -15,7 +15,10 @@ define view ZBS_I_DmoCompleteDocument
       Partner.City,
       Partner.Country,
       Position.MaterialNumber,
+      @Semantics.quantity.unitOfMeasure: 'PositionUnit'
       Position.PositionQuantity,
+      Position.PositionUnit,
+      @Semantics.amount.currencyCode: 'PositionCurrency'
       Position.PositionPrice,
       Position.PositionCurrency,
       Head.DocumentDate

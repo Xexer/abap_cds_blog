@@ -11,7 +11,9 @@ define view ZBS_C_DmoPartnerReporting
 {
   key PartnerNumber,
       PositionCurrency,
+      @Semantics.amount.currencyCode: 'PositionCurrency'
       PriceForPartnerMaterial,
+      @Semantics.amount.currencyCode: 'CurrencyUSD'
       currency_conversion(
         amount => PriceForPartnerMaterial,
         source_currency => PositionCurrency,
@@ -20,5 +22,6 @@ define view ZBS_C_DmoPartnerReporting
         exchange_rate_date => $parameters.P_CalculationDate,
         exchange_rate_type => 'M',
         error_handling => 'SET_TO_NULL'
-      ) as PriceInUSD
+      )                               as PriceInUSD,
+      cast( 'USD' as abap.cuky( 5 ) ) as CurrencyUSD
 }

@@ -20,8 +20,8 @@ union select from ZBS_C_DmoPositionError
 
   key DocumentNumber,
   key PositionNumber,
-      'Error' as PositionType,
-      0.0     as PositionPrice,
+      'Error'                      as PositionType,
+      cast( 0 as abap.curr(15,2) ) as PositionPrice,
       PositionCurrency
 }
 where

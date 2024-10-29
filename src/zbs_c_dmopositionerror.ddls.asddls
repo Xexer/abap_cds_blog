@@ -9,7 +9,10 @@ define view ZBS_C_DmoPositionError
   key DocumentNumber,
   key PositionNumber,
       MaterialNumber,
+      @Semantics.quantity.unitOfMeasure: 'PositionUnit'
       PositionQuantity,
+      PositionUnit,
+      @Semantics.amount.currencyCode: 'PositionCurrency'
       PositionPrice,
       PositionCurrency,
       case PositionPrice
