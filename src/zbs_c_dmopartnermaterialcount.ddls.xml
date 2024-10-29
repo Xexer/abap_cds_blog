@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_C_DMOPARTNERMATERIALCOUNT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Count for Partner and Material</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_C_DMOPARAMETERREUSE</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Reuse with parameters</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

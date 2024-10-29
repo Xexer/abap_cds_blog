@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_C_DMOPARTNERSUM</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Sum for Partner</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

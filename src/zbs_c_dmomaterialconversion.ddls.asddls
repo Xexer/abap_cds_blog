@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSCDMOMATCONV'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Conversion for units'
-define view ZBS_C_DmoMaterialConversion
+define view entity ZBS_C_DmoMaterialConversion
   as select from ZBS_I_DmoMaterial
 {
   key MaterialNumber,

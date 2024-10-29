@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSCDMOPARAM'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'CDS with parameter'
-define view ZBS_C_DmoParameter
+define view entity ZBS_C_DmoParameter
   with parameters
     @Environment.systemField: #SYSTEM_DATE
     P_Date  : abap.dats,
@@ -14,8 +11,8 @@ define view ZBS_C_DmoParameter
 {
   key DocumentNumber,
       DocumentDate,
-      _Partner.PartnerName,
-      _Partner.Country,
+      ZBS_I_DmoInvoice._Partner.PartnerName,
+      ZBS_I_DmoInvoice._Partner.Country,
       case $parameters.P_Type
         when 'A' then 'New'
         when 'B' then 'Old'

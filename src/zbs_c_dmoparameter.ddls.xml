@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_C_DMOPARAMETER</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>CDS with parameter</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

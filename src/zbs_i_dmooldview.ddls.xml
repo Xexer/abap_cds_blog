@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_I_DMOOLDVIEW</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Old view type</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

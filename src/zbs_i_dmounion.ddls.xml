@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_I_DMOUNION</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Union example</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

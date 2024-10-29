@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSCDMOINVSESS'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #CHECK
 @EndUserText.label: 'Session information'
-define view ZBS_C_DmoInvoiceSession
+define view entity ZBS_C_DmoInvoiceSession
   as select from ZBS_I_DmoInvoice
 {
   key DocumentNumber,

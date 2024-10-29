@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_I_DMOCOMPLETEDOCUMENT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Complete Invoice Document</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

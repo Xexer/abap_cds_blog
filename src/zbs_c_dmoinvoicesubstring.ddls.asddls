@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSCDMOINVSUB'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Substring for month'
-define view ZBS_C_DmoInvoiceSubstring
+define view entity ZBS_C_DmoInvoiceSubstring
   as select from ZBS_I_DmoInvoice
 {
   key DocumentNumber,

@@ -1,14 +1,11 @@
-@AbapCatalog.sqlViewName: 'ZBSIDMOPRIPERUNI'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Exit in CDS'
-define view ZBS_C_DmoPricePerUnit
+define view entity ZBS_C_DmoPricePerUnit
   as select from ZBS_I_DmoPosition
 {
   key DocumentNumber,
   key PositionNumber,
-      _Material.MaterialName,
+      ZBS_I_DmoPosition._Material.MaterialName,
       @Semantics.quantity.unitOfMeasure: 'PositionUnit'
       PositionQuantity,
       PositionUnit,

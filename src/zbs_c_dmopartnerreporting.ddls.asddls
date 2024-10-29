@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSCDMOPARREPO'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Reporting for Partners'
-define view ZBS_C_DmoPartnerReporting
+define view entity ZBS_C_DmoPartnerReporting
   with parameters
     @Environment.systemField: #SYSTEM_DATE
     P_CalculationDate : abap.dats

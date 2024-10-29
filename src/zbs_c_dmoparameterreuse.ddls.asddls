@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSCDMOPARAMRE'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck:  #NOT_REQUIRED
 @EndUserText.label: 'Reuse with parameters'
-define view ZBS_C_DmoParameterReuse
+define view entity ZBS_C_DmoParameterReuse
   with parameters
     P_Date : abap.dats
   as select from ZBS_C_DmoParameter(

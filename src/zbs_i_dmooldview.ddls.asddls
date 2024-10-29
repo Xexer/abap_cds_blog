@@ -1,9 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZBSIDMOOLDVIEW'
-@AbapCatalog.compiler.compareFilter: true
-@AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Old view type'
-define view ZBS_I_DmoOldView
+define view entity ZBS_I_DmoOldView
   with parameters
     @Environment.systemField: #SYSTEM_DATE
     P_Date : abap.dats

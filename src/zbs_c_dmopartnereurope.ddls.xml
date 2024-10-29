@@ -6,7 +6,7 @@
     <DDLNAME>ZBS_C_DMOPARTNEREUROPE</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Partner in Europe</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>
