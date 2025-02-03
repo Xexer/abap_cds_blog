@@ -1,0 +1,42 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "CDB Configuration",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "objectType": "DDLS",
+    "objectName": "ZBS_B_DMOTEAMVIEW"
+  },
+  "fields": [
+    {
+      "name": "USERIDENTIFICATION",
+      "nature": "general"
+    },
+    {
+      "name": "PLAYERFULLNAME",
+      "nature": "general"
+    },
+    {
+      "name": "EMAILADDRESS",
+      "nature": "sensitive"
+    },
+    {
+      "name": "PLAYERPOSITION",
+      "nature": "general"
+    },
+    {
+      "name": "ELOSCORE",
+      "nature": "sensitive"
+    },
+    {
+      "name": "TEAMNAME",
+      "nature": "general"
+    },
+    {
+      "name": "TEAMLEADER",
+      "nature": "nonBusinessInformation"
+    }
+  ]
+}
