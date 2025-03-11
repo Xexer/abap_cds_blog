@@ -53,35 +53,49 @@ ENDCLASS.
 CLASS ZCL_BS_DEMO_DUMMY_DATA IMPLEMENTATION.
 
 
-  METHOD if_oo_adt_classrun~main.
-    create_partner( ).
-    out->write( |Partner: { lines( mt_partner ) }| ).
+  METHOD create_discount.
+    mt_discount = VALUE #(
+      ( partner = '1000000000' material = 'F0003' discount = '10.00' )
+      ( partner = '1000000001' material = 'F0001' discount = '15.00' )
+      ( partner = '1000000001' material = 'H0002' discount = '3.50' )
+      ( partner = '1000000006' material = 'R0001' discount = '7.50' )
+    ).
 
-    create_material( ).
-    out->write( |Material: { lines( mt_material ) }| ).
-
-    create_discount( ).
-    out->write( |Discount: { lines( mt_discount ) }| ).
-
-    create_invoice( c_number_of_invoices ).
-    out->write( |Invoice: { lines( mt_head ) }| ).
-    out->write( |Position: { lines( mt_position ) }| ).
+    DELETE FROM zbs_dmo_discount.
+    INSERT zbs_dmo_discount FROM TABLE @mt_discount.
   ENDMETHOD.
 
 
-  METHOD create_partner.
-    mt_partner = VALUE #(
-      ( partner = '1000000000' name = 'SAP' street = 'Demo Street 15' city = 'Walldorf' country = 'DE' payment_currency = 'EUR' )
-      ( partner = '1000000001' name = 'Microsoft' street = 'Demo Street 24' city = 'Redmond' country = 'US' payment_currency = 'USD' )
-      ( partner = '1000000002' name = 'Meta' street = 'Fox Street 1' city = 'Menlo Park' country = 'US' payment_currency = 'USD' )
-      ( partner = '1000000003' name = 'Alibaba' street = 'Alley 15' city = 'Hangzhou' country = 'CN' payment_currency = 'CNY' )
-      ( partner = '1000000004' name = 'BMW' street = 'Main Avenue 200' city = 'Munich' country = 'DE' payment_currency = 'EUR' )
-      ( partner = '1000000005' name = 'Nestle' street = 'Village Alley 14' city = 'Vevey' country = 'CH' payment_currency = 'CHF' )
-      ( partner = '1000000006' name = 'Gazprom' street = 'Peace Avenue 1' city = 'Sankt Petersburg' country = 'RU' payment_currency = 'RUB' )
+  METHOD create_head.
+    DATA:
+      ld_document TYPE n LENGTH 8 VALUE 30000000.
+
+    IF mo_random_partner IS INITIAL.
+      mo_random_partner = NEW #( id_min = 1 id_max = lines( mt_partner ) ).
+      mo_random_date = NEW #( id_min = 1 id_max = c_days_back_from_today ).
+    ENDIF.
+
+    rs_result = VALUE #(
+      document = ld_document + lines( mt_head )
+      doc_date = CONV d( cl_abap_context_info=>get_system_date( ) - mo_random_date->rand( ) )
+      doc_time = cl_abap_context_info=>get_system_time( )
+      partner = mt_partner[ mo_random_partner->rand( ) ]-partner
     ).
 
-    DELETE FROM zbs_dmo_partner.
-    INSERT zbs_dmo_partner FROM TABLE @mt_partner.
+    INSERT rs_result INTO TABLE mt_head.
+  ENDMETHOD.
+
+
+  METHOD create_invoice.
+    DO id_count TIMES.
+      DATA(ls_head) = create_head( ).
+      create_positions( ls_head ).
+    ENDDO.
+
+    DELETE FROM zbs_dmo_invoice.
+    INSERT zbs_dmo_invoice FROM TABLE @mt_head.
+    DELETE FROM zbs_dmo_position.
+    INSERT zbs_dmo_position FROM TABLE @mt_position.
   ENDMETHOD.
 
 
@@ -136,49 +150,19 @@ CLASS ZCL_BS_DEMO_DUMMY_DATA IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD create_discount.
-    mt_discount = VALUE #(
-      ( partner = '1000000000' material = 'F0003' discount = '10.00' )
-      ( partner = '1000000001' material = 'F0001' discount = '15.00' )
-      ( partner = '1000000001' material = 'H0002' discount = '3.50' )
-      ( partner = '1000000006' material = 'R0001' discount = '7.50' )
+  METHOD create_partner.
+    mt_partner = VALUE #(
+      ( partner = '1000000000' name = 'SAP' street = 'Demo Street 15' city = 'Walldorf' country = 'DE' payment_currency = 'EUR' )
+      ( partner = '1000000001' name = 'Microsoft' street = 'Demo Street 24' city = 'Redmond' country = 'US' payment_currency = 'USD' )
+      ( partner = '1000000002' name = 'Meta' street = 'Fox Street 1' city = 'Menlo Park' country = 'US' payment_currency = 'USD' )
+      ( partner = '1000000003' name = 'Alibaba' street = 'Alley 15' city = 'Hangzhou' country = 'CN' payment_currency = 'CNY' )
+      ( partner = '1000000004' name = 'BMW' street = 'Main Avenue 200' city = 'Munich' country = 'DE' payment_currency = 'EUR' )
+      ( partner = '1000000005' name = 'Nestle' street = 'Village Alley 14' city = 'Vevey' country = 'CH' payment_currency = 'CHF' )
+      ( partner = '1000000006' name = 'Gazprom' street = 'Peace Avenue 1' city = 'Sankt Petersburg' country = 'RU' payment_currency = 'RUB' )
     ).
 
-    DELETE FROM zbs_dmo_discount.
-    INSERT zbs_dmo_discount FROM TABLE @mt_discount.
-  ENDMETHOD.
-
-
-  METHOD create_invoice.
-    DO id_count TIMES.
-      DATA(ls_head) = create_head( ).
-      create_positions( ls_head ).
-    ENDDO.
-
-    DELETE FROM zbs_dmo_invoice.
-    INSERT zbs_dmo_invoice FROM TABLE @mt_head.
-    DELETE FROM zbs_dmo_position.
-    INSERT zbs_dmo_position FROM TABLE @mt_position.
-  ENDMETHOD.
-
-
-  METHOD create_head.
-    DATA:
-      ld_document TYPE n LENGTH 8 VALUE 30000000.
-
-    IF mo_random_partner IS INITIAL.
-      mo_random_partner = NEW #( id_min = 1 id_max = lines( mt_partner ) ).
-      mo_random_date = NEW #( id_min = 1 id_max = c_days_back_from_today ).
-    ENDIF.
-
-    rs_result = VALUE #(
-      document = ld_document + lines( mt_head )
-      doc_date = CONV d( cl_abap_context_info=>get_system_date( ) - mo_random_date->rand( ) )
-      doc_time = cl_abap_context_info=>get_system_time( )
-      partner = mt_partner[ mo_random_partner->rand( ) ]-partner
-    ).
-
-    INSERT rs_result INTO TABLE mt_head.
+    DELETE FROM zbs_dmo_partner.
+    INSERT zbs_dmo_partner FROM TABLE @mt_partner.
   ENDMETHOD.
 
 
@@ -227,5 +211,21 @@ CLASS ZCL_BS_DEMO_DUMMY_DATA IMPLEMENTATION.
 
       INSERT ls_position INTO TABLE mt_position.
     ENDDO.
+  ENDMETHOD.
+
+
+  METHOD if_oo_adt_classrun~main.
+    create_partner( ).
+    out->write( |Partner: { lines( mt_partner ) }| ).
+
+    create_material( ).
+    out->write( |Material: { lines( mt_material ) }| ).
+
+    create_discount( ).
+    out->write( |Discount: { lines( mt_discount ) }| ).
+
+    create_invoice( c_number_of_invoices ).
+    out->write( |Invoice: { lines( mt_head ) }| ).
+    out->write( |Position: { lines( mt_position ) }| ).
   ENDMETHOD.
 ENDCLASS.

@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZBS_I_DMOTEAMVIEWHR</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Team Hierarchy</DDTEXT>
+    <DDTEXT>Hierarchy Node</DDTEXT>
     <SOURCE_TYPE>H</SOURCE_TYPE>
    </DDLS>
   </asx:values>

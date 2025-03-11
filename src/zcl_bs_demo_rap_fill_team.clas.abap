@@ -7,7 +7,10 @@ CLASS zcl_bs_demo_rap_fill_team DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_bs_demo_rap_fill_team IMPLEMENTATION.
+
+CLASS ZCL_BS_DEMO_RAP_FILL_TEAM IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     DATA team_members TYPE STANDARD TABLE OF zbs_dmo_team WITH EMPTY KEY.
 

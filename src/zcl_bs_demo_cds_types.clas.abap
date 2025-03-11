@@ -7,7 +7,10 @@ CLASS zcl_bs_demo_cds_types DEFINITION
 ENDCLASS.
 
 
-CLASS zcl_bs_demo_cds_types IMPLEMENTATION.
+
+CLASS ZCL_BS_DEMO_CDS_TYPES IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     DATA ld_simple TYPE ZBS_DemoCDSInvoiceStatus.
     DATA ld_enum   TYPE ZBS_DemoCDSInvoiceStatusEnum.

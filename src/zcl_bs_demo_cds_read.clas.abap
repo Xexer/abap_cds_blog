@@ -76,7 +76,7 @@ CLASS ZCL_BS_DEMO_CDS_READ IMPLEMENTATION.
         p_field = 'Program'
       )
       FIELDS *
-      INTO table@DATA(lt_parameter).
+      INTO table @DATA(lt_parameter).
 
     out->write( lt_parameter ).
   ENDMETHOD.
